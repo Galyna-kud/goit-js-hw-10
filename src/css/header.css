@@ -4,12 +4,9 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  margin-top: 40px;
 }
-.nav-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .nav-list {
   display: flex;
   align-items: center;
