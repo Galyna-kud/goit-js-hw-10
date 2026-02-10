@@ -22,7 +22,7 @@ flatpickr(input, {
     onClose(selectedDates) {
         userSelectedDate = selectedDates[0];
 
-        if (userSelectedDate < new Date()) {
+        if (userSelectedDate <= new Date()) {
              iziToast.error({ title: "Error", message: "Please choose a date in the future", position: "topRight" });
             btnTimerStart.disabled = true
         } else {
@@ -34,12 +34,13 @@ flatpickr(input, {
 btnTimerStart.addEventListener("click", () => {
     if (!userSelectedDate) return;
     
+    btnTimerStart.disabled = true;
+    input.disabled = true;
+    
     intervalId = setInterval(() => {
         const currentDate = new Date();
         const differentDate = userSelectedDate - currentDate;
         
-        btnTimerStart.disabled = true;
-        input.disabled = true;
 
 
         if (differentDate <= 0) {
